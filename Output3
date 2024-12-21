@@ -1,0 +1,86 @@
+Output
+
+1. Insert
+2. Delete
+3. Display
+4. Exit
+Enter your choice: 1
+Enter value to insert: 10
+10 inserted into the queue
+
+1. Insert
+2. Delete
+3. Display
+4. Exit
+Enter your choice: 1
+Enter value to insert: 20
+20 inserted into the queue
+
+1. Insert
+2. Delete
+3. Display
+4. Exit
+Enter your choice: 1
+Enter value to insert: 30
+30 inserted into the queue
+
+1. Insert
+2. Delete
+3. Display
+4. Exit
+Enter your choice: 3
+Queue elements are:
+10 20 30
+
+1. Insert
+2. Delete
+3. Display
+4. Exit
+Enter your choice: 2
+10 deleted from queue
+
+1. Insert
+2. Delete
+3. Display
+4. Exit
+Enter your choice: 3
+Queue elements are:
+20 30
+
+1. Insert
+2. Delete
+3. Display
+4. Exit
+Enter your choice: 1
+Enter value to insert: 40
+40 inserted into the queue
+
+1. Insert
+2. Delete
+3. Display
+4. Exit
+Enter your choice: 1
+Enter value to insert: 50
+50 inserted into the queue
+
+1. Insert
+2. Delete
+3. Display
+4. Exit
+Enter your choice: 1
+Enter value to insert: 60
+Queue Overflow
+
+1. Insert
+2. Delete
+3. Display
+4. Exit
+Enter your choice: 3
+Queue elements are:
+20 30 40 50
+
+1. Insert
+2. Delete
+3. Display
+4. Exit
+Enter your choice: 4
