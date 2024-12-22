@@ -1,0 +1,142 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node {
+    int data;
+    struct Node* next;
+};
+
+struct Node* head = NULL;
+
+void createLinkedList() {
+    int n, value;
+    struct Node *newNode, *temp;
+    printf("Enter the number of nodes: ");
+    scanf("%d", &n);
+    for (int i = 0; i < n; i++) {
+        printf("Enter value for node %d: ", i + 1);
+        scanf("%d", &value);
+        newNode = (struct Node*)malloc(sizeof(struct Node));
+        newNode->data = value;
+        newNode->next = NULL;
+        if (head == NULL) {
+            head = newNode;
+        } else {
+            temp = head;
+            while (temp->next != NULL) {
+                temp = temp->next;
+            }
+            temp->next = newNode;
+        }
+    }
+}
+
+void sortLinkedList() {
+    if (head == NULL) {
+        printf("List is empty\n");
+        return;
+    }
+    struct Node *i, *j;
+    int tempData;
+    for (i = head; i != NULL; i = i->next) {
+        for (j = i->next; j != NULL; j = j->next) {
+            if (i->data > j->data) {
+                tempData = i->data;
+                i->data = j->data;
+                j->data = tempData;
+            }
+        }
+    }
+    printf("List sorted\n");
+}
+
+void reverseLinkedList() {
+    struct Node *prev = NULL, *current = head, *next = NULL;
+    while (current != NULL) {
+        next = current->next;
+        current->next = prev;
+        prev = current;
+        current = next;
+    }
+    head = prev;
+    printf("List reversed\n");
+}
+
+void concatenateLinkedLists(struct Node* head2) {
+    if (head == NULL) {
+        head = head2;
+        return;
+    }
+    struct Node* temp = head;
+    while (temp->next != NULL) {
+        temp = temp->next;
+    }
+    temp->next = head2;
+    printf("Lists concatenated\n");
+}
+
+void displayList() {
+    if (head == NULL) {
+        printf("List is empty\n");
+        return;
+    }
+    struct Node* temp = head;
+    printf("Linked list: ");
+    while (temp != NULL) {
+        printf("%d ", temp->data);
+        temp = temp->next;
+    }
+    printf("\n");
+}
+
+int main() {
+    int choice;
+    while (1) {
+        printf("\n1. Create Linked List\n2. Sort Linked List\n3. Reverse Linked List\n4. Concatenate Linked Lists\n5. Display List\n6. Exit\nEnter your choice: ");
+        scanf("%d", &choice);
+        switch (choice) {
+            case 1:
+                createLinkedList();
+                break;
+            case 2:
+                sortLinkedList();
+                break;
+            case 3:
+                reverseLinkedList();
+                break;
+            case 4: {
+                struct Node* head2 = NULL;
+                printf("Enter the second list:\n");
+                int n, value;
+                struct Node *newNode, *temp;
+                printf("Enter the number of nodes: ");
+                scanf("%d", &n);
+                for (int i = 0; i < n; i++) {
+                    printf("Enter value for node %d: ", i + 1);
+                    scanf("%d", &value);
+                    newNode = (struct Node*)malloc(sizeof(struct Node));
+                    newNode->data = value;
+                    newNode->next = NULL;
+                    if (head2 == NULL) {
+                        head2 = newNode;
+                    } else {
+                        temp = head2;
+                        while (temp->next != NULL) {
+                            temp = temp->next;
+                        }
+                        temp->next = newNode;
+                    }
+                }
+                concatenateLinkedLists(head2);
+                break;
+            }
+            case 5:
+                displayList();
+                break;
+            case 6:
+                return 0;
+            default:
+                printf("Invalid choice\n");
+        }
+    }
+}
